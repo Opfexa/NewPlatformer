@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpSpeed;
     private bool faceRight;
-
+    public bool onGround;
     //Fight Mode
     public bool onFight;
     private bool attacking;
@@ -77,10 +77,19 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && onGround)
         {
+            onGround = false;
             playerAnim.SetBool("jump",true);
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpSpeed);
         }
+    }
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.transform.tag == "Ground")
+        {
+            onGround = true;
+            playerAnim.SetBool("jump",false);
+        }    
     }
 }
