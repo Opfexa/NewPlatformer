@@ -366,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546417414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.81, z: 0}
+  m_LocalPosition: {x: -0.26, y: -1.68, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -414,11 +414,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b35f5ec540edb44934d4b1def453eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  jumpSpeed: 7
+  speed: 12
+  jumpSpeed: 10
   onGround: 0
+  canDrawSword: 0
   onFight: 0
   sCombo: 0
+  pCombo: 0
 --- !u!50 &546417422
 Rigidbody2D:
   serializedVersion: 4
@@ -430,15 +432,15 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.43295735
+  m_UseAutoMass: 0
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Material: {fileID: 6200000, guid: 7ce3716c3aee31545b59065aae885a78, type: 2}
+  m_Interpolate: 1
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &1007551385
 GameObject:
