@@ -9,7 +9,7 @@ public class KickAttackBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = animator.GetComponent<PlayerController>();
-        player.pCombo = 0;
+        player.kCombo = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
