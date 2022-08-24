@@ -279,6 +279,10 @@ GameObject:
   - component: {fileID: 546417420}
   - component: {fileID: 546417422}
   - component: {fileID: 546417421}
+  - component: {fileID: 546417425}
+  - component: {fileID: 546417424}
+  - component: {fileID: 546417423}
+  - component: {fileID: 546417426}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -414,13 +418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b35f5ec540edb44934d4b1def453eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
-  jumpSpeed: 10
-  onGround: 0
-  canDrawSword: 0
-  onFight: 0
-  sCombo: 0
-  pCombo: 0
+  playerMovementScript: {fileID: 546417425}
+  playerAnimationScript: {fileID: 546417423}
+  playerCollisionScript: {fileID: 546417424}
+  playerAttackScript: {fileID: 546417426}
 --- !u!50 &546417422
 Rigidbody2D:
   serializedVersion: 4
@@ -442,6 +443,60 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &546417423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546417414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8837244d8869cd5478a035cd2f79053f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 546417421}
+--- !u!114 &546417424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546417414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671c56eb566bb234ca43f4fe888824b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 546417421}
+--- !u!114 &546417425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546417414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aef04d1f1e37804885b7cd5e21149fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 546417421}
+  speed: 10
+  jumpSpeed: 8
+--- !u!114 &546417426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546417414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b31a145656ff7040b16f3c1802e8261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 546417421}
 --- !u!1 &1007551385
 GameObject:
   m_ObjectHideFlags: 0

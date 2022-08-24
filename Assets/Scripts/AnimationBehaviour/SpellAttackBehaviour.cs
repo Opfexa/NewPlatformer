@@ -19,7 +19,11 @@ public class SpellAttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       animator.ResetTrigger("mAttack");
+        animator.ResetTrigger("sAttack");
+        animator.ResetTrigger("pAttack");
+        animator.ResetTrigger("mAttack");
+        animator.ResetTrigger("kAttack");
+        animator.ResetTrigger("bAttack");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -9,19 +9,19 @@ public class SwordAttackBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = animator.GetComponent<PlayerController>();
-        player.onFight = true;
+        player.playerAttackScript.onFight = true;
         animator.SetBool("onFight",true);
-        player.sCombo = 0;
+        player.playerAttackScript.sCombo = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(player.sCombo == 0)
+        if(player.playerAttackScript.sCombo == 0)
         {
             animator.SetBool("sCombo",false);
         }
-        else if(player.sCombo == 1)
+        else if(player.playerAttackScript.sCombo == 1)
         {
             animator.SetBool("sCombo",true);
         }
@@ -31,6 +31,10 @@ public class SwordAttackBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("sAttack");
+        animator.ResetTrigger("pAttack");
+        animator.ResetTrigger("mAttack");
+        animator.ResetTrigger("kAttack");
+        animator.ResetTrigger("bAttack");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -9,17 +9,17 @@ public class KickAttackBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = animator.GetComponent<PlayerController>();
-        player.kCombo = 0;
+        player.playerAttackScript.kCombo = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(player.kCombo == 0)
+        if(player.playerAttackScript.kCombo == 0)
         {
             animator.SetBool("kCombo",false);
         }
-        else if(player.kCombo == 1)
+        else if(player.playerAttackScript.kCombo == 1)
         {
             animator.SetBool("kCombo",true);
         }
@@ -28,7 +28,11 @@ public class KickAttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("sAttack");
+        animator.ResetTrigger("pAttack");
+        animator.ResetTrigger("mAttack");
         animator.ResetTrigger("kAttack");
+        animator.ResetTrigger("bAttack");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
