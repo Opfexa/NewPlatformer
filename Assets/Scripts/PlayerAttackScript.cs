@@ -13,6 +13,10 @@ public class PlayerAttackScript : MonoBehaviour
     internal int sCombo;
     internal int pCombo;
     internal int kCombo;
+    [SerializeField] GameObject arrow;
+    [SerializeField] Transform arrowStartPos;
+    [SerializeField] GameObject spell;
+    [SerializeField] Transform spellStartPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,5 +76,13 @@ public class PlayerAttackScript : MonoBehaviour
             kCombo++;
             playerController.playerAnim.SetBool("kCombo",true);
         }
+    }
+    public void Spell()
+    {
+        Instantiate(spell,new Vector2(spellStartPos.transform.position.x, spellStartPos.transform.position.y),Quaternion.identity);
+    }
+    public void Bow()
+    {
+        Instantiate(arrow,new Vector2(arrowStartPos.transform.position.x, arrowStartPos.transform.position.y),Quaternion.identity);
     }
 }
