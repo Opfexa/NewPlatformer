@@ -9,6 +9,8 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] internal float speed;
     [SerializeField] internal int health;
     public EnemyStatesChange enemyStatesChange;
+    
+    internal bool isDead;
     private void Awake() 
     {
         enemyRb = GetComponent<Rigidbody2D>();
@@ -23,6 +25,11 @@ public class EnemyBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(health <= 0)
+        {
+            isDead = true;
+        }
+        else
+        isDead = false;
     }
 }

@@ -15,4 +15,11 @@ public class PlayerCollisionScript : MonoBehaviour
             playerController.playerAnim.SetBool("jump",false);
         }    
     }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.tag == "EnemySword")
+        {
+            playerController.Damage();
+        }
+    }
 }

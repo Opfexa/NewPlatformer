@@ -16,6 +16,10 @@ public class PlayerAnimationScript : MonoBehaviour
     void Update()
     {
         MovementAnimations();
+        if(playerController.playerAnim.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
+        {
+            playerController.canHitAnim = true;
+        }
     }
     private void MovementAnimations()
     {

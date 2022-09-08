@@ -20,4 +20,11 @@ public class SpellScript : MonoBehaviour
         else
         transform.Translate(new Vector2(1,0) *spellSpeed * Time.deltaTime);
     }
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
+    
 }

@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     internal PlayerAttackScript playerAttackScript;
     
+    internal bool isDead;
+    internal bool canHitAnim;
+    [SerializeField] internal int damage;
+    [SerializeField] internal int health;
     private void Awake() 
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -24,14 +28,37 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        canHitAnim = true;
     }
     
     void Update()
     {
-        
+        if(health <= 0) isDead = true; else isDead = false;
+
+        if(isDead)
+        {
+            playerRb.isKinematic =true;
+            playerRb.GetComponent<BoxCollider2D>().enabled = false;
+            playerAnim.SetBool("isDead",true);
+        } 
     }
-    
+    internal void Damage()
+    {
+        health = health - damage;
+        if(playerAttackScript.onFight && canHitAnim)
+        {
+            playerAnim.Play("Hurt",-1,0f); 
+            canHitAnim = false;
+        } 
+        else
+        {
+            if(canHitAnim)
+            {
+                playerAnim.Play("BigHit",-1,0f);
+                canHitAnim = false;
+            }
+        } 
+    }
     
     
     

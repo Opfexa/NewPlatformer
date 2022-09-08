@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - SwordCollider
+  - Arrow
+  - Magic
+  - MeleeCollider
+  - EnemySword
   layers:
   - Default
   - TransparentFX
